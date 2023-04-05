@@ -1,0 +1,152 @@
+
+package Bt1Lab7;
+
+public abstract class PhuongTienDiChuyen {
+    protected String loaiPhuongTien;
+    protected HangSanXuat hangSanXuat;
+
+    public PhuongTienDiChuyen() {
+    }
+
+    public PhuongTienDiChuyen(String loaiPhuongTien, HangSanXuat hangSanXuat) {
+        this.loaiPhuongTien = loaiPhuongTien;
+        this.hangSanXuat = hangSanXuat;
+    }
+    
+    public String layTenHangSanXuat(){
+        return "0";
+    }
+    
+    public void batDau(){}
+    public void tangToc(){}
+    public void dungLai(){}
+    abstract double layVanToc();
+}
+
+
+package Bt1Lab7;
+
+public class HangSanXuat {
+    private String tenHangSanXuat;
+    private String tenQuocGia;
+
+    public HangSanXuat() {
+    }
+
+    public HangSanXuat(String tenHangSanXuat, String tenQuocGia) {
+        this.tenHangSanXuat = tenHangSanXuat;
+        this.tenQuocGia = tenQuocGia;
+    }
+
+    public String getTenHangSanXuat() {
+        return tenHangSanXuat;
+    }
+
+    public void setTenHangSanXuat(String tenHangSanXuat) {
+        this.tenHangSanXuat = tenHangSanXuat;
+    }
+
+    public String getTenQuocGia() {
+        return tenQuocGia;
+    }
+
+    public void setTenQuocGia(String tenQuocGia) {
+        this.tenQuocGia = tenQuocGia;
+    }
+
+    @Override
+    public String toString() {
+        return "HangSanXuat{" + "tenHangSanXuat=" + tenHangSanXuat + ", tenQuocGia=" + tenQuocGia + '}';
+    }
+    
+}
+
+
+package Bt1Lab7;
+
+public class MayBay extends PhuongTienDiChuyen {
+    private String loaiNhienLieu;
+
+    public MayBay() {
+    }
+    
+    public MayBay(String loaiNhienLieu) {
+        this.loaiNhienLieu = loaiNhienLieu;
+    }
+
+    public String getLoaiNhienLieu() {
+        return loaiNhienLieu;
+    }
+
+    public void setLoaiNhienLieu(String loaiNhienLieu) {
+        this.loaiNhienLieu = loaiNhienLieu;
+    }
+    
+    public void catCanh(){
+        System.out.println("123");
+    }
+    public void haCanh(){
+        System.out.println("456");
+    }
+    
+    @Override
+    public double layVanToc(){
+        return 0;
+    }
+}
+
+
+package Bt1Lab7;
+
+public class XeOto extends PhuongTienDiChuyen{
+    private String loaiNhienLieu;
+    
+    public XeOto(){}
+
+    public XeOto(String loaiNhienLieu) {
+        this.loaiNhienLieu = loaiNhienLieu;
+    }
+
+    public String getLoaiNhienLieu() {
+        return loaiNhienLieu;
+    }
+
+    public void setLoaiNhienLieu(String loaiNhienLieu) {
+        this.loaiNhienLieu = loaiNhienLieu;
+    }
+    
+    @Override
+    public double layVanToc(){
+        return 0;
+    }
+    
+}
+
+package Bt1Lab7;
+
+public class XeDap extends PhuongTienDiChuyen {
+
+    @Override
+    public double layVanToc() {
+        return 0;
+    }
+}
+
+
+package Bt1Lab7;
+
+public class main {
+    public static void main(String[] args) {
+        MayBay mb = new MayBay();
+        mb.catCanh();mb.haCanh();
+        mb.layVanToc();
+        
+        XeOto oto = new XeOto();
+        oto.layVanToc();
+        
+        XeDap xd = new XeDap();
+        xd.layVanToc();
+        
+        
+    }
+}
